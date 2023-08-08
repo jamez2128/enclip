@@ -1,0 +1,4 @@
+enclip_config.ps1
+*.lnk
+data/
+.gnupg/
