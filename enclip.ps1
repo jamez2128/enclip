@@ -1,7 +1,7 @@
 ﻿
 <#PSScriptInfo
 
-.VERSION 1.0.0
+.VERSION 1.0.1
 
 .GUID e73628f1-8093-4234-ba9d-ebcf119317d7
 
@@ -23,7 +23,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Web
 Add-Type -AssemblyName System.Drawing
-$versionNumber = "1.0.0"
+$versionNumber = "1.0.1"
 
 # I HAD TO DO THIS TO GET RID OF THAT STUPID SUGGESTION THING!
 $scriptName = $script:MyInvocation.MyCommand.Name
