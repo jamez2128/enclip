@@ -526,9 +526,9 @@ function _encryptQRCode() {
 
 function _encrypt() {
     if (Get-Clipboard -Format Image) { _encryptQRCode }
-    if ([string]::IsNullOrEmpty($(Get-Clipboard))) {  _sendNotification "Clipboard did not contain a text or a QR Code" "Error" ; exit 1 }
+    if ([string]::IsNullOrEmpty($(Get-Clipboard -raw))) {  _sendNotification "Clipboard did not contain a text or a QR Code" "Error" ; exit 1 }
     _saveFile
-    _encryptFile "$(Get-Clipboard)"
+    _encryptFile "$(Get-Clipboard -raw)"
 }
 
 function _createKey() {
