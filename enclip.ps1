@@ -488,10 +488,10 @@ function _encryptFile($textToEncrypt) {
     # Runs the gpg encryption if a key is not specifed, it will use symmetric encryption
     $fileName = $script:FileBrowser.FileName
     if ([string]::IsNullOrEmpty($recipient)) {
-        $gpgOutput = Write-Output "$textToEncrypt" | & "${gnupgBinDir}gpg.exe" $gnupgHomeDirArg $gnupgHome --batch --yes -c --no-symkey-cache --cipher-algo AES256 -o "$fileName" 2>&1
+        $gpgOutput = Write-Output "$textToEncrypt" | & "${gnupgBinDir}gpg.exe" $gnupgHomeDirArg $gnupgHome --batch --yes --armor -c --no-symkey-cache --cipher-algo AES256 -o "$fileName" 2>&1
 
     } else {
-        $gpgOutput = Write-Output "$textToEncrypt" | & "${gnupgBinDir}gpg.exe" $gnupgHomeDirArg $gnupgHome --batch --yes -e -r "$recipient" -o "$fileName" 2>&1
+        $gpgOutput = Write-Output "$textToEncrypt" | & "${gnupgBinDir}gpg.exe" $gnupgHomeDirArg $gnupgHome --batch --yes --armor -e -r "$recipient" -o "$fileName" 2>&1
     }
     $gpgExitCode = $LASTEXITCODE
     $script:FileBrowser.Dispose()
